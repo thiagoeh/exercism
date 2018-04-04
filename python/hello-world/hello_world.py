@@ -1,2 +1,3 @@
 def hello(name=''):
-    pass
+    return 'Hello, World!'
+
