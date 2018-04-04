@@ -1,5 +1,6 @@
 from string import ascii_lowercase
 
+
 def is_pangram(sentence):
     sentence_lower = sentence.lower()
 
