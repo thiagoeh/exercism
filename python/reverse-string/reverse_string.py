@@ -1,11 +1,4 @@
 def reverse(input=''):
-    input_len = len(input)
-    reversed  = ''
-
-    for i in range(input_len-1,-1,-1):
-        reversed = reversed + input[i]
-
-    return(reversed)
-
-
-
+    # Using a (reversed) extended slice.
+    # https://docs.python.org/2.3/whatsnew/section-slices.html
+    return(input[::-1])
