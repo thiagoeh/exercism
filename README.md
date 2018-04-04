@@ -15,3 +15,14 @@ rm exercism
 ## Configure
 `exercism configure --key=XXXXXXXXXXXXXXXXXXXXXX`
 
+### Change home to the correct path if necessary
+
+## Exercises workflow
+```
+exercism fetch python
+# work on exercise
+# run tests
+
+# submittting
+exercism submit <exercise file>
+```
