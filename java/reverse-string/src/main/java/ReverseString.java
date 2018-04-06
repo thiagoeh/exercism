@@ -1,7 +1,14 @@
 class ReverseString {
 
     String reverse(String inputString) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        String reversedString = "";
+        String inputStringSplitted[] = inputString.split("");
+
+        for(String c : inputStringSplitted){
+            reversedString = c + reversedString;
+        }
+
+        return reversedString;
     }
   
 }
