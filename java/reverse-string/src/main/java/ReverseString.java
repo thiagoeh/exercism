@@ -1,3 +1,8 @@
+// Useful docs:
+// http://devdocs.io/openjdk~8/java/lang/string#split-java.lang.String-
+// https://docs.oracle.com/javase/8/docs/api/java/lang/String.html#split-java.lang.String-
+
+
 class ReverseString {
 
     String reverse(String inputString) {
