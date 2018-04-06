@@ -8,7 +8,7 @@ javac -version
 ```
 
 # Gradle setup
-Instead of using a PPA (as recommended in hello-world/TUTORIAL.md, I'm using SDKman (as recommended by Gradle itself)
+Instead of using a PPA (as recommended in [hello-world/TUTORIAL.md], I'm using SDKman (as recommended by Gradle itself)
 
 Not `root` required! :relaxed:
 
