@@ -1,4 +1,6 @@
 def distance(strand_a, strand_b):
+    """Return the Hamming distance of two same-length DNA strands
+    """
     # Check if strands have same length
     if len(strand_a) != len(strand_b):
         raise ValueError("Strands don't have the same length")
