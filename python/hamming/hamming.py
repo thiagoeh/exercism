@@ -7,8 +7,8 @@ def distance(strand_a, strand_b):
     # Iterate every char in strand_a comparing with strand_b
     # Increment distance_count for every difference found
     distance_count = 0
-    for i in range(len(strand_a)):
-        if strand_a[i] != strand_b[i]:
+    for ch_a, ch_b in zip(strand_a, strand_b):
+        if ch_a != ch_b:
             distance_count += 1
 
     return distance_count
