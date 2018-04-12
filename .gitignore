@@ -4,3 +4,8 @@ __pycache__
 
 .gradle
 java/*/build
+
+
+# csharp track
+csharp/*/bin/
+csharp/*/obj/
