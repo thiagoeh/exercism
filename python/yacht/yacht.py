@@ -1,23 +1,8 @@
 import collections
 
-# Score categories
-# Change the values as you see fit
-YACHT = "YACHT"
-ONES = "ONES"
-TWOS = "TWOS"
-THREES = "THREES"
-FOURS = "FOURS"
-FIVES = "FIVES"
-SIXES = "SIXES"
-FULL_HOUSE = "FULL_HOUSE"
-FOUR_OF_A_KIND = "FOUR_OF_A_KIND"
-LITTLE_STRAIGHT = "LITTLE_STRAIGHT"
-BIG_STRAIGHT = "BIG_STRAIGHT"
-CHOICE = "CHOICE"
-
 
 def score_yacht(dice):
-    if dice[0] == dice[1] == dice[2] == dice[3] == dice[4]:
+    if len(collections.Counter(dice)) == 1:
         return 50
     else:
         return 0
@@ -49,7 +34,7 @@ def score_four_of_a_kind(dice):
 
 
 def score_ones(dice):
-    return dice.count(1)
+    return dice.count(1) * 1
 
 
 def score_twos(dice):
@@ -73,34 +58,28 @@ def score_sixes(dice):
 
 
 def score_full_house(dice):
-    if len(collections.Counter(dice)) == 2:
+    # Exactly two different values, and one of them occurs 2 or 3 times
+    if len(collections.Counter(dice)) == 2 and 2 >= dice.count(dice[0]) <= 3:
         return sum(dice)
     else:
         return 0
 
 
+# Score categories
+# Change the values as you see fit
+YACHT = score_yacht
+ONES = score_ones
+TWOS = score_twos
+THREES = score_threes
+FOURS = score_fours
+FIVES = score_fives
+SIXES = score_sixes
+FULL_HOUSE = score_full_house
+FOUR_OF_A_KIND = score_four_of_a_kind
+LITTLE_STRAIGHT = score_little_straight
+BIG_STRAIGHT = score_big_straight
+CHOICE = score_choice
+
+
 def score(dice, category):
-    if category == YACHT:
-        return score_yacht(dice)
-    elif category == BIG_STRAIGHT:
-        return score_big_straight(dice)
-    elif category == LITTLE_STRAIGHT:
-        return score_little_straight(dice)
-    elif category == CHOICE:
-        return score_choice(dice)
-    elif category == FOUR_OF_A_KIND:
-        return score_four_of_a_kind(dice)
-    elif category == ONES:
-        return score_ones(dice)
-    elif category == TWOS:
-        return score_twos(dice)
-    elif category == THREES:
-        return score_threes(dice)
-    elif category == FOURS:
-        return score_fours(dice)
-    elif category == FIVES:
-        return score_fives(dice)
-    elif category == SIXES:
-        return score_sixes(dice)
-    elif category == FULL_HOUSE:
-        return score_full_house(dice)
+    return category(dice)
