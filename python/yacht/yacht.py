@@ -9,14 +9,14 @@ def score_yacht(dice):
 
 
 def score_big_straight(dice):
-    if 2 in dice and 3 in dice and 4 in dice and 5 in dice and 6 in dice:
+    if sorted(dice) == [2, 3, 4, 5, 6]:
         return 30
     else:
         return 0
 
 
 def score_little_straight(dice):
-    if 1 in dice and 2 in dice and 3 in dice and 4 in dice and 5 in dice:
+    if sorted(dice) == [1, 2, 3, 4, 5]:
         return 30
     else:
         return 0
