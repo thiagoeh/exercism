@@ -17,8 +17,4 @@ class Allergies(object):
 
     @property
     def lst(self):
-        allergens_list = []
-        for allergen in self.allergens:
-            if (self.allergens[allergen] & self.score) > 0:
-                allergens_list.append(allergen)
-        return allergens_list
+        return [ allergen for allergen in self.allergens if (self.allergens[allergen] & self.score) ]
