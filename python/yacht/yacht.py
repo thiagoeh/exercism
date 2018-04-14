@@ -1,3 +1,5 @@
+import collections
+
 # Score categories
 # Change the values as you see fit
 YACHT = "YACHT"
@@ -40,14 +42,42 @@ def score_choice(dice):
 
 
 def score_four_of_a_kind(dice):
-    for value in range(1,7):
-        print(f'value {value}')
+    for value in range(1, 7):
         if dice.count(value) >= 4:
-            return dice.count(value) * value
+            return value * 4
     return 0
+
+
+def score_ones(dice):
+    return dice.count(1)
+
+
+def score_twos(dice):
+    return dice.count(2) * 2
+
+
+def score_threes(dice):
+    return dice.count(3) * 3
+
 
 def score_fours(dice):
     return dice.count(4) * 4
+
+
+def score_fives(dice):
+    return dice.count(5) * 5
+
+
+def score_sixes(dice):
+    return dice.count(6) * 6
+
+
+def score_full_house(dice):
+    if len(collections.Counter(dice)) == 2:
+        return sum(dice)
+    else:
+        return 0
+
 
 def score(dice, category):
     if category == YACHT:
@@ -60,5 +90,17 @@ def score(dice, category):
         return score_choice(dice)
     elif category == FOUR_OF_A_KIND:
         return score_four_of_a_kind(dice)
+    elif category == ONES:
+        return score_ones(dice)
+    elif category == TWOS:
+        return score_twos(dice)
+    elif category == THREES:
+        return score_threes(dice)
     elif category == FOURS:
         return score_fours(dice)
+    elif category == FIVES:
+        return score_fives(dice)
+    elif category == SIXES:
+        return score_sixes(dice)
+    elif category == FULL_HOUSE:
+        return score_full_house(dice)
