@@ -17,4 +17,4 @@ class Allergies(object):
 
     @property
     def lst(self):
-        return [ allergen for allergen in self.allergens if bool(self.allergens[allergen] & self.score) ]
+        return [ allergen for allergen in self.allergens if self.is_allergic_to(allergen) ]
