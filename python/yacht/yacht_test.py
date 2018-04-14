@@ -46,6 +46,9 @@ class YachtTests(unittest.TestCase):
     def test_two_pair_is_not_a_full_house(self):
         self.assertEqual(score([2, 2, 4, 4, 5], yacht.FULL_HOUSE), 0)
 
+    def test_four_and_one_is_not_a_full_house(self):
+        self.assertEqual(score([3, 3, 3, 3, 5]), yacht.FULL_HOUSE), 0)
+
     def test_yacht_is_not_a_full_house(self):
         self.assertEqual(score([2, 2, 2, 2, 2], yacht.FULL_HOUSE), 0)
 
