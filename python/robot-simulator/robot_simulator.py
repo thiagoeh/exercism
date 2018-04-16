@@ -12,14 +12,12 @@ class Robot(object):
         self._x = x
         self._y = y
 
-
     @property
     def coordinates(self):
         """
         Coordinates tuple (x, y)
         """
         return (self._x, self._y)
-
 
     def advance(self):
         """
