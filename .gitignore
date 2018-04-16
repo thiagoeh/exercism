@@ -9,3 +9,7 @@ java/*/build
 # csharp track
 csharp/*/bin/
 csharp/*/obj/
+
+
+# PyCharm
+.idea/
