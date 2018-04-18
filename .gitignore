@@ -1,10 +1,15 @@
+# Python
 .pytest_cache
 __pycache__
 .mypy_cache
 
+
+# Java
 .gradle
 java/*/build
-
+.classpath
+.project
+.settings/
 
 # csharp track
 csharp/*/bin/
