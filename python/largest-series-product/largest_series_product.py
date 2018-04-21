@@ -12,9 +12,8 @@ def largest_product(series, size):
     # Generate all combinations based on the size
     combinations = (series[i:size+i] for i in range(0, len(series)-size+1))
 
-    products = set()
-    for combination in combinations:
-        products.add(serie_product(combination))
+    # Generate a product for each combination
+    products = (serie_product(combination) for combination in combinations)
 
     # Return the largest product
     return max(products)
