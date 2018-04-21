@@ -17,6 +17,3 @@ def largest_product(series, size):
 
     # Return the largest product
     return max(products)
-
-
-print(largest_product('23453456353645', 3))
