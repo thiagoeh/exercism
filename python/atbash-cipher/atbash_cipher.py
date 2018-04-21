@@ -1,6 +1,6 @@
 from string import ascii_lowercase
 
-cipher = 'zyxwvutsrqponmlkjihgfedcba'
+cipher = ascii_lowercase[::-1]
 strip_size = 5
 
 encode_translation = str.maketrans(ascii_lowercase, cipher)
