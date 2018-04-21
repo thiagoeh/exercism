@@ -1,5 +1,5 @@
 class Garden(object):
-    default_students = (
+    default_students = [
         'Alice',
         'Bob',
         'Charlie',
@@ -12,11 +12,11 @@ class Garden(object):
         'Joseph',
         'Kincaid',
         'Larry',
-    )
+    ]
 
     def __init__(self, diagram, students=default_students):
         self.diagram = diagram
-        self.students = sorted(students)
+        self.students = students
 
         self.plants_names = {
             'C': 'Clover',
@@ -24,6 +24,15 @@ class Garden(object):
             'R': 'Radishes',
             'V': 'Violets',
         }
+
+    @property
+    def students(self):
+        return self._students
+
+    # The setter assures that the 'students' list is always sorted
+    @students.setter
+    def students(self, students):
+        self._students = sorted(students)
 
     def plants(self, student):
         student_index = self.students.index(student)
