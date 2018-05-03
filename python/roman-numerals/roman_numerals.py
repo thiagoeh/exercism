@@ -1,4 +1,5 @@
 # all variations for roman numerals
+# this form allows alternative representations 
 numerals = {
     0: '',
     1: 'I',
@@ -42,6 +43,5 @@ def numeral(number):
     units = number % 10
 
     # Concatenate all the roman numerals
-    roman_numeral = numerals[thousands] + \
-        numerals[hundreds] + numerals[tens] + numerals[units]
+    roman_numeral = numerals[thousands] + numerals[hundreds] + numerals[tens] + numerals[units]
     return roman_numeral
