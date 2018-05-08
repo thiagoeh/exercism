@@ -5,8 +5,8 @@
 
 bool is_isogram(const char phrase[])
 {
-    // Initialize an array for counting the char occurences
-    int alphabet['z'-'a'] = { 0 };
+    // Initialize an array for counting the char occurrences
+    int alphabet['z'-'a' + 1] = { 0 };
 
     int phrase_length = strlen(phrase);
     for (int i=0; i<phrase_length; i++){
@@ -23,6 +23,7 @@ bool is_isogram(const char phrase[])
         alphabet[c-'a'] +=1;
     }
 
+    // No repeated chars found, so must be a isogram
     return true;
 }
 

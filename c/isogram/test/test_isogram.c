@@ -55,6 +55,12 @@ void test_duplicated_letter_within_word(void)
    TEST_ASSERT_FALSE(is_isogram("accentor"));
 }
 
+void test_many_zzzz(void)
+{
+    TEST_ASSERT_FALSE(is_isogram("zzzZZZzzzzZZzzzzZZ"));
+}
+
+
 int main(void)
 {
    UnityBegin("test/test_isogram.c");
@@ -68,6 +74,8 @@ int main(void)
    RUN_TEST(test_duplicated_non_letter_char);
    RUN_TEST(test_multiple_whitespace);
    RUN_TEST(test_duplicated_letter_within_word);
+
+   RUN_TEST(test_many_zzzz);
 
    UnityEnd();
    return 0;
