@@ -15,13 +15,8 @@ char *abbreviate(const char *phrase)
         return NULL;
     }
 
-
-    // Not sure if really needed, but makes a copy of 'phrase' as 'phrase_copy'
     size_t phrase_len = strlen(phrase);
-    
-    char *phrase_copy = calloc(phrase_len+1, sizeof(char));
-    strncpy(phrase_copy, phrase, phrase_len);
-    
+    // Maximum length for acronym assumed as equal as input string
     char *acronym = calloc(phrase_len+1, sizeof(char));
 
     //Return NULL if input is empty string
@@ -30,19 +25,19 @@ char *abbreviate(const char *phrase)
         return NULL;
     }
 
-    
     // Word separator flag
-    // Is set to 'true' so we get the first non-alpha char
+    // Initialized to 'true' so we get the first non-alpha char
     bool separator = true;
 
     // Index for letters in the acronym
     size_t acronym_i = 0;
     
-    for(size_t i=0; i<phrase_len && phrase_copy[i] != '\0'; i++)
+    // Iterate over the input string
+    for(size_t i=0; i<phrase_len; i++)
     {
         //If current char is non-alpha (and is neither an apostrophe),
         //maybe a word begin in the next char
-        if(!isalpha(phrase_copy[i]) && phrase_copy[i] != '\'')
+        if(!isalpha(phrase[i]) && phrase[i] != '\'')
         {
             separator = true;
         }
@@ -50,14 +45,11 @@ char *abbreviate(const char *phrase)
             // If previous char is a separator, add current char to acronym string
             if(separator)
             {
-                acronym[acronym_i] = toupper(phrase_copy[i]);
+                acronym[acronym_i] = toupper(phrase[i]);
                 acronym_i++;
                 separator = false;
             }
     }
-    // Add a terminator to the end of acronym
-    // Probably not needed, as we used calloc
-    acronym[acronym_i] = '\0';
 
     //DEBUG MESSAGE
     printf("acronym: %s\n", acronym);
