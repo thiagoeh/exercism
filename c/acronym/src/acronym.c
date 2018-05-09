@@ -1,4 +1,4 @@
-/** NON WORKING **/
+/** SEGFAULT after running the first test (NULL input) **/
 
 
 #include <stdlib.h>
@@ -9,22 +9,27 @@
 
 char *abbreviate(const char *phrase)
 {
+    //Return NULL if input NULL
+    if(phrase == NULL)
+    {
+        return NULL;
+    }
+
 
     // Not sure if really needed, but makes a copy of 'phrase' as 'phrase_copy'
     size_t phrase_len = strlen(phrase);
+    
     char *phrase_copy = calloc(phrase_len+1, sizeof(char));
     strncpy(phrase_copy, phrase, phrase_len);
     
-    char *acronym = NULL;
+    char *acronym = calloc(phrase_len+1, sizeof(char));
 
-    //Return NULL if input is empty string or a NULL
-    if(phrase_len == 0 || phrase == NULL)
+    //Return NULL if input is empty string
+    if(phrase_len == 0)
     {
-        return acronym;
+        return NULL;
     }
 
-    // Asssumes the worst case for acronym length, being equal as 'phrase' length
-    acronym = calloc(phrase_len+1, sizeof(char));
     
     // Word separator flag
     // Is set to 'true' so we get the first non-alpha char
@@ -35,8 +40,9 @@ char *abbreviate(const char *phrase)
     
     for(size_t i=0; i<phrase_len && phrase_copy[i] != '\0'; i++)
     {
-        //If current char is non-alpha, assumes a word begin in the next char
-        if(!isalpha(phrase_copy[i]))
+        //If current char is non-alpha (and is neither an apostrophe),
+        //maybe a word begin in the next char
+        if(!isalpha(phrase_copy[i]) && phrase_copy[i] != '\'')
         {
             separator = true;
         }
