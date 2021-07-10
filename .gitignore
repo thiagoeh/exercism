@@ -18,3 +18,6 @@ csharp/*/obj/
 
 # PyCharm
 .idea/
+
+# Exercism
+**/.exercism/
